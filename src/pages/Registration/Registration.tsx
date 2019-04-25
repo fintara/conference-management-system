@@ -1,7 +1,7 @@
-import React, { FunctionComponent } from 'react'
-import './Registration.scss'
-import ClrInput from '../../ui/ClrInput';
-import ClrDatepicker from '../../ui/ClrDatepicker';
+import React, { FunctionComponent } from "react"
+import ClrDatepicker from "ui/ClrDatepicker"
+import ClrInput from "ui/ClrInput"
+import "./Registration.scss"
 
 const Registration: FunctionComponent = () => {
   return (
