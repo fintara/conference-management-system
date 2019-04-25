@@ -19,7 +19,8 @@ const ClrInput: FunctionComponent<Props> = ({ label, type, placeholder, fluid })
           <input
             type={type || "text"}
             placeholder={placeholder}
-            className="clr-input" />
+            className="clr-input"
+          />
         </div>
       </div>
     </div >
