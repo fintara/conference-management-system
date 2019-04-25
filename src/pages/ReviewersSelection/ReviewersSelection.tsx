@@ -1,8 +1,7 @@
-import React, {FunctionComponent} from "react"
-
+import { Degree, Reviewer } from "common/models"
+import React, { FunctionComponent } from "react"
 import "./ReviewersSelection.scss"
-import {Degree, Reviewer} from "./Reviewer";
-import ReviewerTable from "./ReviewerTable/ReviewerTable";
+import ReviewerTable from "./ReviewerTable/ReviewerTable"
 
 const reviewers: Reviewer[] = [
   {firstName: "Ivan", lastName: "Pavlov", keyWords: ["data", "science", "AI", "machine learning"], university: "MIT", degree: Degree.MASTER},
@@ -11,10 +10,10 @@ const reviewers: Reviewer[] = [
   {firstName: "Peter", lastName: "Smith", keyWords: ["data", "science", "AI", "machine learning"], university: "MIT", degree: Degree.MASTER},
   {firstName: "Michael", lastName: "Bay", keyWords: ["data", "science", "AI", "machine learning"], university: "MIT", degree: Degree.MASTER},
   {firstName: "James", lastName: "Nelson", keyWords: ["data", "science", "AI", "machine learning"], university: "MIT", degree: Degree.MASTER},
-  {firstName: "John", lastName: "Smith", keyWords: ["data", "science", "AI", "machine learning"], university: "MIT", degree: Degree.MASTER}
-];
+  {firstName: "John", lastName: "Smith", keyWords: ["data", "science", "AI", "machine learning"], university: "MIT", degree: Degree.MASTER},
+]
 
-const ReviewersSelection : FunctionComponent = () => {
+const ReviewersSelection: FunctionComponent = () => {
   return (
     <div className="container">
       <h2>Select Reviewers</h2>

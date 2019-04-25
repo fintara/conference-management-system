@@ -1,12 +1,13 @@
-import React, {FunctionComponent} from "react"
-import {Reviewer} from "../Reviewer";
+import { Reviewer } from "common/models"
+import React, { FunctionComponent } from "react"
+import ReviewerRow from "../ReviewerRow/ReviewerRow"
 import "./ReviewerTable.scss"
-import ReviewerRow from "../ReviewerRow/ReviewerRow";
 
 type Props = {
   reviewers: Reviewer[]
 }
-const ReviewerTable: FunctionComponent<Props> = ({reviewers}) => {
+
+const ReviewerTable: FunctionComponent<Props> = ({ reviewers }) => {
   return (
     <table className="table">
       <thead>
@@ -20,10 +21,10 @@ const ReviewerTable: FunctionComponent<Props> = ({reviewers}) => {
         </tr>
       </thead>
 
-      {reviewers.map((reviewer, index) => <ReviewerRow index={index} reviewer={reviewer}/>)}
+      {reviewers.map((reviewer, index) => <ReviewerRow key={index} id={index} reviewer={reviewer}/>)}
 
     </table>
   )
-};
+}
 
 export default ReviewerTable

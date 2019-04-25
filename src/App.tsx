@@ -1,7 +1,7 @@
 import Registration from "pages/Registration"
+import ReviewersSelection from "pages/ReviewersSelection"
 import React, { FunctionComponent } from "react"
 import "./App.scss"
-import ReviewersSelection from "./pages/ReviewersSelection/ReviewersSelection";
 
 const App: FunctionComponent = () => {
   return (
