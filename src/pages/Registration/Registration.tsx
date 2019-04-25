@@ -16,8 +16,8 @@ const Registration: FunctionComponent = () => {
                 <ClrInput label="First name" placeholder="e.g. John" />
                 <ClrInput label="Last name" placeholder="e.g. Doe" />
                 <ClrDatepicker label="Birth date" />
-                <ClrInput label="E-mail" type="email" />
-                <ClrInput label="Password" type="password" />
+                <ClrInput label="E-mail" type="email" placeholder="e.g. john.doe@gmail.com" />
+                <ClrInput label="Password" type="password" placeholder="min. 6 symbols" />
                 <ClrInput label="Phone" placeholder="087-xxx-xxx" />
                 <ClrInput label="University" placeholder="start typing..." />
             </form>
