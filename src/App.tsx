@@ -1,3 +1,4 @@
+import ConferenceForm from "pages/ConferenceForm";
 import Registration from "pages/Registration"
 import ReviewersSelection from "pages/ReviewersSelection"
 import React, { FunctionComponent } from "react"
@@ -7,6 +8,9 @@ import "./App.scss"
 const App: FunctionComponent = () => {
   return (
     <>
+      <ClrContainer size="small">
+        <ConferenceForm />
+      </ClrContainer>
       <ClrContainer size="small">
         <Registration />
       </ClrContainer>
