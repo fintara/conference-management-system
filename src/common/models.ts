@@ -13,3 +13,19 @@ export enum Degree {
   MASTER = "Master",
   DOCTOR = "Doctor",
 }
+
+export interface Author {
+  firstName: string
+  lastName: string
+}
+
+export function author(name: string): Author {
+  const [firstName, lastName] = name.split(" ")
+  return { firstName, lastName }
+}
+
+export interface PaperCompact {
+  title: string
+  authors: Author[]
+  lastUpdated: Date
+}

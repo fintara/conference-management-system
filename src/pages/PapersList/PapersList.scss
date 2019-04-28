@@ -1,0 +1,7 @@
+.author-name::after {
+  content: ', ';
+}
+
+.author-name:last-child::after {
+  content: '';
+}
