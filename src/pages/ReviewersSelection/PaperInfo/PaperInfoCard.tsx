@@ -9,6 +9,9 @@ type Props = {
 const PaperInfoCard: FunctionComponent<Props> = ({info}) => {
   return (
     <div className="card">
+      <div className="card-header">
+        Selected Paper
+      </div>
       <div className="card-block">
         <div className="card-title">
           {info.title}
