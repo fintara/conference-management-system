@@ -22,7 +22,10 @@ const PaperInfoCard: FunctionComponent<Props> = ({info}) => {
               {info.keywords.map((word, i) => <span key={i} className="label">{word}</span>)}
           </div>
         </div>
+      <div className="card-footer">
+        <button className="btn btn-sm btn-outline">Details</button>
       </div>
+    </div>
   )
 }
 
