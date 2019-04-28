@@ -4,7 +4,7 @@ import ReviewerRow from "../ReviewerRow/ReviewerRow"
 import "./ReviewerTable.scss"
 
 type Props = {
-  reviewers: Reviewer[]
+  reviewers: Array<{match: "Poor" | "Good" | "Perfect", reviewer: Reviewer}>
 }
 
 const ReviewerTable: FunctionComponent<Props> = ({ reviewers }) => {
@@ -17,11 +17,13 @@ const ReviewerTable: FunctionComponent<Props> = ({ reviewers }) => {
           <th>Last Name</th>
           <th>University</th>
           <th>Keywords</th>
+          <th>Match</th>
           <th><input type="checkbox" className="checkbox"/></th>
         </tr>
       </thead>
-
-      {reviewers.map((reviewer, index) => <ReviewerRow key={index} id={index} reviewer={reviewer}/>)}
+      <tbody>
+        {reviewers.map((pair, index) => <ReviewerRow key={index} id={index} reviewer={pair.reviewer} match={pair.match}/>)}
+      </tbody>
 
     </table>
   )

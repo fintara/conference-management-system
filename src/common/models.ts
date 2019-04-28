@@ -14,6 +14,13 @@ export enum Degree {
   DOCTOR = "Doctor",
 }
 
+export interface PaperInfo {
+  abstract: string;
+  title: string
+  authors: string[]
+  keywords: string[]
+}
+
 export interface Author {
   firstName: string
   lastName: string
