@@ -1,4 +1,5 @@
 import ConferenceForm from "pages/ConferenceForm"
+import PaperManagement from "pages/PaperManagement"
 import PapersList from "pages/PapersList"
 import Registration from "pages/Registration"
 import ReviewersSelection from "pages/ReviewersSelection"
@@ -17,6 +18,9 @@ const App: FunctionComponent = () => {
       </ClrContainer>
       <ClrContainer size="normal">
         <PapersList />
+      </ClrContainer>
+      <ClrContainer size="normal">
+        <PaperManagement />
       </ClrContainer>
       <ClrContainer size="normal">
         <ReviewersSelection />

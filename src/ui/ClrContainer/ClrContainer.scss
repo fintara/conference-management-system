@@ -1,0 +1,13 @@
+.clr-container {
+  .bounding-box {
+    padding: 1em;
+    border: 1px dotted rgb(255, 204, 204);
+    margin-top: 1em;
+  }
+
+  &:last-child {
+    .bounding-box {
+      margin-bottom: 1em;
+    }
+  }
+}

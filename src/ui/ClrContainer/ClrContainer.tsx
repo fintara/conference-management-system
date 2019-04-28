@@ -16,9 +16,9 @@ const sizeToNumber = (size: Props["size"]) => {
 
 const ClrContainer: FunctionComponent<Props> = (props) => {
   return (
-    <div className="clr-row clr-justify-content-center">
+    <div className="clr-row clr-justify-content-center clr-container">
       <div className={`clr-col-${sizeToNumber(props.size)}`}>
-        {props.children}
+        <div className="bounding-box">{props.children}</div>
       </div>
     </div>
   )

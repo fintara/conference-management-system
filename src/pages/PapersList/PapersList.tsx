@@ -26,7 +26,13 @@ const papers: PaperCompact[] = [{
 
 const PapersList: FunctionComponent = () => {
   const renderAuthor = (a: Author, i: number) => (
-    <span key={i} className="author-name">{a.firstName.substr(0, 1)}. {a.lastName}</span>
+    <span
+      key={i}
+      title={`${a.firstName} ${a.lastName}`}
+      className="author-name"
+    >
+      {a.firstName.substr(0, 1)}. {a.lastName}
+    </span>
   )
 
   const renderRow = (paper: PaperCompact, i: number) => (
@@ -44,7 +50,7 @@ const PapersList: FunctionComponent = () => {
       <table className="table">
       <thead>
         <tr>
-          <th> </th>
+          <th/>
           <th className="left">Title</th>
           <th className="left">Authors</th>
           <th>Last updated</th>
