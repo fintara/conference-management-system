@@ -15,8 +15,8 @@ touch "$FULLPATH/$NAME.scss"
 touch "$FULLPATH/index.ts"
 
 cat > "$FULLPATH/$NAME.tsx" <<EOL
-import React, { FunctionComponent } from 'react'
-import './${NAME}.scss'
+import React, { FunctionComponent } from "react"
+import "./${NAME}.scss"
 
 const ${NAME}: FunctionComponent = () => {
   return (
