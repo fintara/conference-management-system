@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react"
 import "./ClrContainer.scss"
 
 type Props = {
-  size: "small" | "normal" | "wide" | "full"
+  size: "small" | "normal" | "wide"
 }
 
 const sizeToNumber = (size: Props["size"]) => {

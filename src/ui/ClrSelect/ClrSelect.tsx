@@ -1,4 +1,3 @@
-import { range } from "common/utils"
 import React, { FunctionComponent } from "react"
 import "./ClrSelect.scss"
 

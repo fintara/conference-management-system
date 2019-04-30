@@ -42,6 +42,7 @@ const PaperManagement: FunctionComponent = () => {
           <div className="card-header">Manage</div>
           <div className="card-block paper-actions">
             <button className="btn btn-primary btn-link btn-block">See latest version</button>
+            <button className="btn btn-primary btn-link btn-block">Edit information</button>
             <button className="btn btn-primary btn-link btn-block">Upload new version</button>
             <button className="btn btn-primary btn-block">Publish paper</button>
           </div>

@@ -13,6 +13,13 @@ code {
     monospace;
 }
 
+@for $i from 1 through 6 {
+  h#{$i} {
+    margin-top: 0;
+    padding-top: 0;
+  }
+}
+
 .card {
   margin-top: 0;
 }
