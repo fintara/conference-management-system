@@ -2,6 +2,7 @@ import ConferenceForm from "pages/ConferenceForm"
 import PaperForm from "pages/PaperForm"
 import PaperManagement from "pages/PaperManagement"
 import PapersList from "pages/PapersList"
+import PaperVersionForm from "pages/PaperVersionForm"
 import Registration from "pages/Registration"
 import ReviewersSelection from "pages/ReviewersSelection"
 import React, { FunctionComponent } from "react"
@@ -20,6 +21,9 @@ const App: FunctionComponent = () => {
       </ClrContainer>
       <ClrContainer size="normal">
         <PaperForm />
+      </ClrContainer>
+      <ClrContainer size="small">
+        <PaperVersionForm />
       </ClrContainer>
       <ClrContainer size="normal">
         <PapersList />
