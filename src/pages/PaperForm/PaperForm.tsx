@@ -19,7 +19,7 @@ const PaperForm: FunctionComponent = () => {
   }
 
   const renderKeyword = (word: string, index: number) =>
-    <span className="label" key={index}>{word}<i className="clr-icon pointer" onClick={() => removeKeyword(word)}/></span>
+    <span className="label" key={index}>{word}<i className="clr-icon times pointer" onClick={() => removeKeyword(word)}/></span>
 
 
   return (

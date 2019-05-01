@@ -4,14 +4,14 @@ import PaperInfoCard from "./PaperInfo/PaperInfoCard"
 import "./ReviewersSelection.scss"
 import ReviewerTable from "./ReviewerTable/ReviewerTable"
 
-const reviewers: Array<{match: "Poor" | "Good" | "Perfect", reviewer: Reviewer}> = [
-  {match: "Perfect", reviewer: {firstName: "Ivan", lastName: "Pavlov", keyWords: ["data", "science", "AI", "machine learning"], university: "MIT", degree: Degree.MASTER}},
-  {match: "Perfect", reviewer: {firstName: "John", lastName: "Snow", keyWords: ["data", "science", "AI", "machine learning"], university: "MIT", degree: Degree.MASTER}},
-  {match: "Good", reviewer: {firstName: "John", lastName: "Doe", keyWords: ["data", "science", "AI"], university: "MIT", degree: Degree.MASTER}},
-  {match: "Good", reviewer: {firstName: "Peter", lastName: "Smith", keyWords: ["data", "science", "AI"], university: "MIT", degree: Degree.MASTER}},
-  {match: "Good", reviewer: {firstName: "Michael", lastName: "Bay", keyWords: ["data", "science", "AI"], university: "MIT", degree: Degree.MASTER}},
-  {match: "Poor", reviewer: {firstName: "James", lastName: "Nelson", keyWords: ["data", "science"], university: "MIT", degree: Degree.MASTER}},
-  {match: "Poor", reviewer: {firstName: "John", lastName: "Smith", keyWords: ["data", "science"], university: "MIT", degree: Degree.MASTER}},
+const reviewers: Array<{match: number, reviewer: Reviewer}> = [
+  {match: 100, reviewer: {firstName: "Ivan", lastName: "Pavlov", keyWords: ["data", "science", "AI", "machine learning"], university: "MIT", degree: Degree.MASTER}},
+  {match: 100, reviewer: {firstName: "John", lastName: "Snow", keyWords: ["data", "science", "AI", "machine learning"], university: "MIT", degree: Degree.MASTER}},
+  {match: 75, reviewer: {firstName: "John", lastName: "Doe", keyWords: ["data", "science", "AI"], university: "MIT", degree: Degree.MASTER}},
+  {match: 75, reviewer: {firstName: "Peter", lastName: "Smith", keyWords: ["data", "science", "AI"], university: "MIT", degree: Degree.MASTER}},
+  {match: 75, reviewer: {firstName: "Michael", lastName: "Bay", keyWords: ["data", "science", "AI"], university: "MIT", degree: Degree.MASTER}},
+  {match: 50, reviewer: {firstName: "James", lastName: "Nelson", keyWords: ["data", "science"], university: "MIT", degree: Degree.MASTER}},
+  {match: 50, reviewer: {firstName: "John", lastName: "Smith", keyWords: ["data", "science"], university: "MIT", degree: Degree.MASTER}},
 ]
 
 const info: PaperInfo = {

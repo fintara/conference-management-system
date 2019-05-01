@@ -4,7 +4,7 @@ import ReviewerRow from "../ReviewerRow/ReviewerRow"
 import "./ReviewerTable.scss"
 
 type Props = {
-  reviewers: Array<{match: "Poor" | "Good" | "Perfect", reviewer: Reviewer}>
+  reviewers: Array<{match: number, reviewer: Reviewer}>
 }
 
 const ReviewerTable: FunctionComponent<Props> = ({ reviewers }) => {

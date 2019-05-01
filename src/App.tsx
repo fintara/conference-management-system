@@ -1,4 +1,5 @@
 import ConferenceForm from "pages/ConferenceForm"
+import PaperDetails from "pages/PaperDetails";
 import PaperForm from "pages/PaperForm"
 import PaperManagement from "pages/PaperManagement"
 import PapersList from "pages/PapersList"
@@ -9,6 +10,7 @@ import React, { FunctionComponent } from "react"
 import ClrContainer from "ui/ClrContainer"
 import "./App.scss"
 import CreateReviewForm from "./pages/Review/CreateReviewForm/CreateReviewForm"
+
 
 const App: FunctionComponent = () => {
   return (
@@ -36,6 +38,12 @@ const App: FunctionComponent = () => {
       </ClrContainer>
       <ClrContainer size="normal">
         <CreateReviewForm />
+      </ClrContainer>
+      <ClrContainer size="normal">
+        <PaperDetails role="author"/>
+      </ClrContainer>
+      <ClrContainer size="normal">
+        <PaperDetails role="organizer"/>
       </ClrContainer>
     </>
   )

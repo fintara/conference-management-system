@@ -5,11 +5,14 @@ import "./ReviewerRow.scss"
 type Props = {
   id: number
   reviewer: Reviewer
-  match: "Poor" | "Good" | "Perfect"
+  match: number
 }
 
-function matchToColor(match: "Poor" | "Good" | "Perfect"): string {
-  return match.toLowerCase()
+function matchToColor(match: number): string {
+    if (match < 60) { return "poor" }
+    if (match >= 60 && match <= 80) {return "good"}
+    if (match > 80) { return "perfect" }
+    return "poor"
 }
 
 const ReviewerRow: FunctionComponent<Props> = ({ id, reviewer, match }) => {
@@ -20,7 +23,7 @@ const ReviewerRow: FunctionComponent<Props> = ({ id, reviewer, match }) => {
       <td>{reviewer.lastName}</td>
       <td>{reviewer.university}</td>
       <td>{reviewer.keyWords.map((word, i) => <span key={i} className="label">{word}</span>)}</td>
-      <td className={matchToColor(match)}><b>{match}</b></td>
+      <td className={matchToColor(match)}><b>{match}{"%"}</b></td>
       <td><input type="checkbox" className="checkbox"/></td>
     </tr>
   )
