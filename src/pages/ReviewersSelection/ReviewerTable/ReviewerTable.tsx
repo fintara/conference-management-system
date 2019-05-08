@@ -12,13 +12,12 @@ const ReviewerTable: FunctionComponent<Props> = ({ reviewers }) => {
     <table className="table">
       <thead>
         <tr>
-          <th>#</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>University</th>
+          <th><input type="checkbox" className="checkbox"/></th>
+          <th className="left">First Name</th>
+          <th className="left">Last Name</th>
+          <th className="left">University</th>
           <th>Keywords</th>
           <th>Match</th>
-          <th><input type="checkbox" className="checkbox"/></th>
         </tr>
       </thead>
       <tbody>

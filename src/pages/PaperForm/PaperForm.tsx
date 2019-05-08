@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React, { FunctionComponent, useState } from "react"
 import ClrFileInput from "ui/ClrFileInput"
 import ClrInput from "ui/ClrInput"
@@ -27,7 +28,7 @@ const PaperForm: FunctionComponent = () => {
   const renderKeyword = (word: string, index: number) => (
     <span className="label" key={index}>
       {word}
-      <a className="close" onClick={() => removeKeyword(word)}>&times;</a>
+      <a className="close" onClick={() => removeKeyword(word)}><FontAwesomeIcon icon="times" /></a>
     </span>
   )
 
