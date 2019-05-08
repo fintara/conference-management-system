@@ -1,4 +1,4 @@
-import React, {ChangeEvent, FunctionComponent, useState} from "react"
+import React, { ChangeEvent, FunctionComponent, useState } from "react"
 import "./ClrInput.scss"
 
 type Props = {
@@ -23,6 +23,7 @@ const ClrInput: FunctionComponent<Props> = ({ label, type, placeholder, fluid, o
   const handlePress = (event: React.KeyboardEvent<HTMLInputElement>): void => {
     if (event.keyCode === 13) {
       onPress && onPress(input)
+      setInput("")
     }
   }
 
@@ -35,6 +36,7 @@ const ClrInput: FunctionComponent<Props> = ({ label, type, placeholder, fluid, o
             type={type || "text"}
             placeholder={placeholder}
             className="clr-input"
+            value={input}
             onKeyDown={handlePress}
             onChange={handleChange}
           />

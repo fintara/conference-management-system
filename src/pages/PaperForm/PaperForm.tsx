@@ -6,11 +6,17 @@ import "./PaperForm.scss"
 
 const PaperForm: FunctionComponent = () => {
 
-  const [keyWords, setKeywords]: [string[], any] = useState(["AI", "Machine Learning", "data", "neural networks"])
+  const [keyWords, setKeywords] = useState(["AI", "Machine Learning", "data", "neural networks"])
 
   const addKeyword = (word: string) => {
-    if (!keyWords.includes(word)) {
-      setKeywords([...keyWords, word])
+    const trimmed = word.trim()
+
+    if (trimmed.length === 0) {
+      return
+    }
+
+    if (!keyWords.includes(trimmed)) {
+      setKeywords([...keyWords, trimmed])
     }
   }
 
@@ -18,9 +24,12 @@ const PaperForm: FunctionComponent = () => {
     setKeywords(keyWords.filter((keyWord) => keyWord !== word))
   }
 
-  const renderKeyword = (word: string, index: number) =>
-    <span className="label" key={index}>{word}<i className="clr-icon times pointer" onClick={() => removeKeyword(word)}/></span>
-
+  const renderKeyword = (word: string, index: number) => (
+    <span className="label" key={index}>
+      {word}
+      <a className="close" onClick={() => removeKeyword(word)}>&times;</a>
+    </span>
+  )
 
   return (
     <div className="card">
@@ -35,7 +44,7 @@ const PaperForm: FunctionComponent = () => {
           <ClrFileInput label="File"/>
           <ClrInput label="Add keywords" placeholder="Type a keyword" onPress={addKeyword}/>
           <div className="clr-form-control clr-row clr-justify-content-end">
-            {keyWords.map((keyWord, index) => renderKeyword(keyWord, index))}
+            {keyWords.map(renderKeyword)}
           </div>
         </form>
       </div>
