@@ -10,12 +10,9 @@ const PaperInfoCard: FunctionComponent<Props> = ({info}) => {
   return (
     <div className="card">
       <div className="card-header">
-        Selected Paper
+      {info.title}
       </div>
       <div className="card-block">
-        <div className="card-title">
-          {info.title}
-        </div>
         <div className="card-text">
               <b>Authors:{" "}</b> {info.authors.join(", ")}
               <p/>

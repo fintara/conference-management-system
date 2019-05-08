@@ -1,5 +1,5 @@
-import {Degree, PaperInfo, Reviewer} from "common/models"
-import React, {FunctionComponent} from "react"
+import { Degree, PaperInfo, Reviewer } from "common/models"
+import React, { FunctionComponent } from "react"
 import PaperInfoCard from "./PaperInfo/PaperInfoCard"
 import "./ReviewersSelection.scss"
 import ReviewerTable from "./ReviewerTable/ReviewerTable"
@@ -26,7 +26,7 @@ const ReviewersSelection: FunctionComponent = () => {
     <div className="container">
       <h2>Select Reviewers</h2>
       <div className="clr-row">
-        <div className="clr-col-6">
+        <div className="clr-col-6 paper-info">
           <PaperInfoCard info={info}/>
         </div>
       </div>

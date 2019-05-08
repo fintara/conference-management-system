@@ -22,7 +22,8 @@ const ReviewerTable: FunctionComponent<Props> = ({ reviewers }) => {
         </tr>
       </thead>
       <tbody>
-        {reviewers.map((pair, index) => <ReviewerRow key={index} id={index} reviewer={pair.reviewer} match={pair.match}/>)}
+        {reviewers.map((pair, index) =>
+          <ReviewerRow key={index} id={index} reviewer={pair.reviewer} match={pair.match}/>)}
       </tbody>
 
     </table>

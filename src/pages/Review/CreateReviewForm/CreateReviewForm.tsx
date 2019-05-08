@@ -19,7 +19,7 @@ const CreateReviewForm: FunctionComponent = () => {
     <div className="container">
       <h2>Create Review</h2>
       <div className="clr-row">
-        <div className="clr-col-6">
+        <div className="clr-col-6 paper-info">
           <PaperInfoCard info={info}/>
         </div>
       </div>
