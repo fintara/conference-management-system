@@ -10,10 +10,14 @@ import React, { FunctionComponent } from "react"
 import ClrContainer from "ui/ClrContainer"
 import "./App.scss"
 import CreateReviewForm from "./pages/Review/CreateReviewForm/CreateReviewForm"
+import Header from "pages/Header";
 
 const App: FunctionComponent = () => {
   return (
     <>
+      <ClrContainer size="normal">
+        <Header />
+      </ClrContainer>
       <ClrContainer size="small">
         <ConferenceForm />
       </ClrContainer>
