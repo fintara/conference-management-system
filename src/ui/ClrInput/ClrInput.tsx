@@ -17,7 +17,7 @@ const ClrInput: FunctionComponent<Props> = ({ label, type, placeholder, fluid, o
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>): void  => {
     setInput(event.target.value)
-    onChange && onChange(input)
+    onChange && onChange(event.target.value)
   }
 
   const handlePress = (event: React.KeyboardEvent<HTMLInputElement>): void => {

@@ -1,8 +1,15 @@
 group = "com.itpiwo.cms"
 version = "0.0.1-SNAPSHOT"
 
+plugins {
+	id("org.springframework.boot")
+	id("io.spring.dependency-management")
+	kotlin("jvm")
+	kotlin("plugin.spring")
+}
+
 dependencies {
-	project(":common")
+	implementation(project(":common"))
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {

@@ -11,10 +11,12 @@ group = "com.itpiwo.cms"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 
-repositories {
-	mavenCentral()
-	maven { url = uri("https://repo.spring.io/snapshot") }
-	maven { url = uri("https://repo.spring.io/milestone") }
+allprojects {	
+	repositories {
+		mavenCentral()
+		maven { url = uri("https://repo.spring.io/snapshot") }
+		maven { url = uri("https://repo.spring.io/milestone") }
+	}
 }
 
 subprojects {
