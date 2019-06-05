@@ -12,6 +12,7 @@ interface UserRepository {
     fun save(user: User): Mono<User>
     fun findById(id: String): Mono<User>
     fun findByEmail(email: String): Mono<User>
+    fun deleteAll(): Mono<Unit>
 }
 
 @Component
@@ -27,4 +28,6 @@ class UserRepositoryImpl : UserRepository {
     override fun findByEmail(email: String): Mono<User>
             = justOrEmpty(data.filterValues { it.email == email }.values.firstOrNull())
 
+    override fun deleteAll(): Mono<Unit>
+            = just(Unit).doOnNext { data.clear() }
 }
