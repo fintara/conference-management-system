@@ -8,6 +8,7 @@ import "./CreateReviewForm.scss"
 const marks = ["Very Good", "Good", "Average", "Pass", "Fail"]
 
 const info: PaperInfo = {
+  id: "",
   abstract: "",
   authors: ["John Smith", "Jane Doe"],
   keywords: ["data", "science", "AI", "machine learning"],

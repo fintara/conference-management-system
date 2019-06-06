@@ -1,7 +1,7 @@
 package com.itpiwo.cms.gateway
 
 import com.itpiwo.cms.common.domain.paper.PaperInfo
-import com.itpiwo.cms.common.domain.paper.PaperSubmitionRequest
+import com.itpiwo.cms.common.domain.paper.PaperSubmissionRequest
 import com.itpiwo.cms.common.domain.user.UserInfo
 import com.itpiwo.cms.common.domain.user.UserLoginRequest
 import com.itpiwo.cms.common.domain.user.UserRegistrationRequest
@@ -25,7 +25,7 @@ class GatewayController (
     = papersService.findAll()
 
   @PostMapping("/papers")
-  fun createPaper(@Valid @RequestBody request: PaperSubmitionRequest): Mono<PaperInfo>
+  fun createPaper(@Valid @RequestBody request: PaperSubmissionRequest): Mono<PaperInfo>
     = papersService.createPaper(request)
 
   @GetMapping("/papers", params = ["email"])

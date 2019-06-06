@@ -26,6 +26,7 @@ const App: FunctionComponent = () => {
       <Route path="/" exact={true} component={Homepage} />
       <Route path="/registration" component={Registration} />
       <Route path="/login" component={() => <Login onUserChanged={(next) => setUser(next)} />} />
+      <Route path="/create-paper" component={PaperForm} />
     </Router>
     // <>
     //   <ClrContainer size="normal">

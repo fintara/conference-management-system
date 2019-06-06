@@ -15,8 +15,10 @@ export enum Degree {
 }
 
 export interface PaperInfo {
+  id: string
   abstract: string
   title: string
+  createdAt: number
   authors: string[]
   keywords: string[]
 }

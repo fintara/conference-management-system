@@ -3,7 +3,7 @@ package com.itpiwo.cms.common.domain.paper
 import org.hibernate.validator.constraints.Length
 import javax.validation.constraints.NotBlank
 
-data class PaperSubmitionRequest (
+data class PaperSubmissionRequest (
 
   @field:NotBlank
   @field:Length(max = 255)

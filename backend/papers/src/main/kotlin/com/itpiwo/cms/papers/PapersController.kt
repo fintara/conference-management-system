@@ -1,7 +1,7 @@
 package com.itpiwo.cms.papers
 
 import com.itpiwo.cms.common.domain.paper.PaperInfo
-import com.itpiwo.cms.common.domain.paper.PaperSubmitionRequest
+import com.itpiwo.cms.common.domain.paper.PaperSubmissionRequest
 import org.springframework.web.bind.annotation.*
 import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
@@ -14,7 +14,7 @@ class PapersController (
 ) {
 
   @PostMapping
-  fun save(@Valid @RequestBody request: PaperSubmitionRequest): Mono<PaperInfo>
+  fun save(@Valid @RequestBody request: PaperSubmissionRequest): Mono<PaperInfo>
     = service.createPaper(request)
 
   @GetMapping(params = ["email"])

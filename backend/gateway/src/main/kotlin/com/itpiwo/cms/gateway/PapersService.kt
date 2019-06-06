@@ -1,7 +1,7 @@
 package com.itpiwo.cms.gateway
 
 import com.itpiwo.cms.common.domain.paper.PaperInfo
-import com.itpiwo.cms.common.domain.paper.PaperSubmitionRequest
+import com.itpiwo.cms.common.domain.paper.PaperSubmissionRequest
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.stereotype.Service
 import org.springframework.web.reactive.function.BodyInserters
@@ -26,7 +26,7 @@ class PapersService(
     .retrieve()
     .bodyToFlux(PaperInfo::class.java)
 
-  fun createPaper(request: PaperSubmitionRequest): Mono<PaperInfo> = web
+  fun createPaper(request: PaperSubmissionRequest): Mono<PaperInfo> = web
     .post()
     .uri(url)
     .body(BodyInserters.fromObject(request))

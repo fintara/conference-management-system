@@ -1,7 +1,7 @@
 package com.itpiwo.cms.papers
 
 import com.itpiwo.cms.common.domain.paper.PaperInfo
-import com.itpiwo.cms.common.domain.paper.PaperSubmitionRequest
+import com.itpiwo.cms.common.domain.paper.PaperSubmissionRequest
 import com.itpiwo.cms.papers.domain.toPaper
 import com.itpiwo.cms.papers.domain.toPaperInfo
 import org.springframework.stereotype.Service
@@ -13,7 +13,7 @@ class PapersService (
   private val repository: PapersRepository
 ) {
 
-  fun createPaper(data: PaperSubmitionRequest): Mono<PaperInfo> = repository
+  fun createPaper(data: PaperSubmissionRequest): Mono<PaperInfo> = repository
         .save(data.toPaper()).map { it.toPaperInfo() }
 
   fun getUsersPapers(email: String): Flux<PaperInfo> = repository
