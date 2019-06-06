@@ -1,3 +1,4 @@
+import http from "common/http"
 import { UserInfo } from "common/models"
 import ConferenceForm from "pages/ConferenceForm"
 import Header from "pages/Header"
@@ -19,13 +20,18 @@ import CreateReviewForm from "./pages/Review/CreateReviewForm/CreateReviewForm"
 const App: FunctionComponent = () => {
   const [user, setUser] = useState<null | UserInfo>(null)
 
+  const onUser = (user: UserInfo | null) => {
+    user && http.setAuthentication(user.email)
+    setUser(user)
+  }
+
   return (
     <Router>
       <Header user={user} />
 
       <Route path="/" exact={true} component={Homepage} />
       <Route path="/registration" component={Registration} />
-      <Route path="/login" component={() => <Login onUserChanged={(next) => setUser(next)} />} />
+      <Route path="/login" component={() => <Login onUserChanged={onUser} />} />
       <Route path="/create-paper" component={() =>  user && <PaperForm user={user} />} />
       <Route path="/papers" component={() => user && <PapersList user={user} />} />
     </Router>
