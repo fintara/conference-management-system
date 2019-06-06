@@ -25,8 +25,8 @@ class GatewayController (
     = papersService.findAll()
 
   @PostMapping("/papers")
-  fun createPaper(@Valid @RequestBody request: PaperSubmissionRequest): Mono<PaperInfo>
-    = papersService.createPaper(request)
+  fun createPaper(@Valid @RequestBody request: PaperSubmissionRequest, @RequestHeader(value = "CMS-Auth") email: String): Mono<PaperInfo>
+    = papersService.createPaper(request, email)
 
   @GetMapping("/papers", params = ["email"])
   fun getAuthorsPapers(@RequestParam("email", required = true) email: String): Flux<PaperInfo>

@@ -13,8 +13,10 @@ class PapersService (
   private val repository: PapersRepository
 ) {
 
-  fun createPaper(data: PaperSubmissionRequest): Mono<PaperInfo> = repository
-        .save(data.toPaper()).map { it.toPaperInfo() }
+  fun createPaper(data: PaperSubmissionRequest, email: String): Mono<PaperInfo> {
+    data.authors.add(email)
+    return repository.save(data.toPaper()).map { it.toPaperInfo() }
+  }
 
   fun getUsersPapers(email: String): Flux<PaperInfo> = repository
     .findByAuthorEmail(email).map { it.toPaperInfo() }

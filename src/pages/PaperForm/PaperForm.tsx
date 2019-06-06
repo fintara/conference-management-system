@@ -23,12 +23,10 @@ const PaperForm: FunctionComponent<Props> = ({user}) => {
   })
 
   const setInput = (field: string, value: any) => {
-    console.log(form)
     setForm({...form, [field]: value})
   }
 
   const sendRequest = async () => {
-    setInput("authors", [...form.authors, user.email])
     setState("idle")
     try {
       const response = await http.post("/papers", form)

@@ -26,10 +26,11 @@ class PapersService(
     .retrieve()
     .bodyToFlux(PaperInfo::class.java)
 
-  fun createPaper(request: PaperSubmissionRequest): Mono<PaperInfo> = web
+  fun createPaper(request: PaperSubmissionRequest, email: String): Mono<PaperInfo> = web
     .post()
     .uri(url)
     .body(BodyInserters.fromObject(request))
+    .header("CMS-Auth", email)
     .retrieve()
     .bodyToMono(PaperInfo::class.java)
 

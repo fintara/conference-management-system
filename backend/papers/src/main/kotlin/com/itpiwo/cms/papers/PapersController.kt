@@ -14,8 +14,8 @@ class PapersController (
 ) {
 
   @PostMapping
-  fun save(@Valid @RequestBody request: PaperSubmissionRequest): Mono<PaperInfo>
-    = service.createPaper(request)
+  fun save(@Valid @RequestBody request: PaperSubmissionRequest, @RequestHeader(value = "CMS-Auth") email: String): Mono<PaperInfo>
+    = service.createPaper(request, email)
 
   @GetMapping(params = ["email"])
   fun getAuthorsPapers(@RequestParam("email", required = true) email: String): Flux<PaperInfo>

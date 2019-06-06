@@ -14,7 +14,7 @@ data class PaperSubmissionRequest (
   @field:Length(max = 1000)
   val abstract: String,
 
-  val authors: List<String> = mutableListOf(),
+  val authors: MutableList<String> = mutableListOf(),
 
-  val keywords: List<String> = mutableListOf()
+  val keywords: MutableList<String> = mutableListOf()
 )
