@@ -9,6 +9,7 @@ type Props = {
 }
 
 const Header: FunctionComponent<Props> = ({ user }) => {
+  const [dropdown, setDropdown] = useState(false)
 
   return (
     <div>
@@ -25,16 +26,16 @@ const Header: FunctionComponent<Props> = ({ user }) => {
         </div>
         <div className="header-actions">
           {user ? <>
-            <div className="dropdown open">
-              <button type="button" className="dropdown-toggle btn btn-link">
+            <div className={`dropdown ${dropdown ? "open" : ""}`}>
+              <button type="button" className="dropdown-toggle btn btn-link" onClick={() => setDropdown(!dropdown)}>
                 {user.name}
               </button>
-              <div className="dropdown-menu">
+              {dropdown && <div className="dropdown-menu">
                 <h4 className="dropdown-header">Author</h4>
                 <button type="button" className="dropdown-item">Profile</button>
                 <div className="dropdown-divider" />
                 <button type="button" className="dropdown-item">Sign out</button>
-              </div>
+              </div>}
             </div>
           </> : <>
             <Link to="registration" className="nav-link"><span className="nav-text">Register</span></Link>
