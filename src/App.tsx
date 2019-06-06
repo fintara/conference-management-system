@@ -11,7 +11,7 @@ import PapersList from "pages/PapersList"
 import PaperVersionForm from "pages/PaperVersionForm"
 import Registration from "pages/Registration"
 import ReviewersSelection from "pages/ReviewersSelection"
-import React, { FunctionComponent, useState } from "react"
+import React, { FunctionComponent, useEffect, useState } from "react"
 import { BrowserRouter as Router, Link, Route } from "react-router-dom"
 import ClrContainer from "ui/ClrContainer"
 import "./App.scss"
@@ -20,10 +20,25 @@ import CreateReviewForm from "./pages/Review/CreateReviewForm/CreateReviewForm"
 const App: FunctionComponent = () => {
   const [user, setUser] = useState<null | UserInfo>(null)
 
+  useEffect(() => {
+    const cached = localStorage.getItem("auth")
+    if (cached) {
+      setUser(JSON.parse(cached))
+    }
+  }, [])
+
   const onUser = (user: UserInfo | null) => {
     user && http.setAuthentication(user.email)
     setUser(user)
+
+    if (user) {
+      localStorage.setItem("auth", JSON.stringify(user))
+    } else {
+      localStorage.removeItem("auth")
+    }
   }
+
+  console.log("hehe")
 
   return (
     <Router>
