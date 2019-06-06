@@ -17,7 +17,7 @@ class PapersController (
   fun save(@Valid @RequestBody request: PaperSubmitionRequest): Mono<PaperInfo>
     = service.createPaper(request)
 
-  @GetMapping
+  @GetMapping(params = ["email"])
   fun getAuthorsPapers(@RequestParam("email", required = true) email: String): Flux<PaperInfo>
     = service.getUsersPapers(email)
 

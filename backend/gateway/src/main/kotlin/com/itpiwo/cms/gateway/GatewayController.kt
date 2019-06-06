@@ -28,7 +28,7 @@ class GatewayController (
   fun createPaper(@Valid @RequestBody request: PaperSubmitionRequest): Mono<PaperInfo>
     = papersService.createPaper(request)
 
-  @GetMapping("/papers")
+  @GetMapping("/papers", params = ["email"])
   fun getAuthorsPapers(@RequestParam("email", required = true) email: String): Flux<PaperInfo>
     = papersService.findAuthorsPapers(email)
 
