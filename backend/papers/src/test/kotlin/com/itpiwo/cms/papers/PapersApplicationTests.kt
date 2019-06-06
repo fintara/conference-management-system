@@ -62,6 +62,26 @@ class PapersApplicationTests {
 	}
 
 	@Test
+	fun `authors are saved distinctly`() {
+		val email = "current@user.com"
+		val data = createRequest(
+			authors = listOf("partner@gmail.com", email, email)
+		)
+
+		web.submitRequest(data, email)
+			.expectStatus().is2xxSuccessful
+			.returnResult<Unit>()
+			.responseBody.blockFirst()
+
+		val authorsSize: (Int) -> (Paper) -> Boolean = { size -> { it.authors.size == size } }
+		val authorExists: (String) -> (Paper) -> Boolean = { author -> { author in it.authors } }
+
+		StepVerifier.create(repository.findByAuthorEmail(email))
+			.expectNextMatches(authorsSize(2) and authorExists(email) and authorExists("partner@gmail.com"))
+			.verifyComplete()
+	}
+
+	@Test
 	fun `keywords are saved distinctly`() {
 		val data = createRequest(
 			keywords = listOf("aaa", "bbb", "ccc", "bbb")
