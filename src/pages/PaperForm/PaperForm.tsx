@@ -1,12 +1,12 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React, { FunctionComponent, useState } from "react"
+import { Redirect } from "react-router"
 import ClrFileInput from "ui/ClrFileInput"
 import ClrInput from "ui/ClrInput"
 import ClrTextArea from "ui/ClrTextArea"
-import "./PaperForm.scss"
 import http from "../../common/http"
-import {UserInfo} from "../../common/models"
-import {Redirect} from "react-router";
+import { UserInfo } from "../../common/models"
+import "./PaperForm.scss"
 
 type Props = {
   user: UserInfo
@@ -28,6 +28,12 @@ const PaperForm: FunctionComponent<Props> = ({user}) => {
 
   const sendRequest = async () => {
     setState("idle")
+
+    if (form.title.trim() === "" || form.abstract.trim() === "") {
+      setState("error")
+      return
+    }
+
     try {
       const response = await http.post("/papers", form)
       if(response) {
@@ -89,6 +95,8 @@ const PaperForm: FunctionComponent<Props> = ({user}) => {
         Create a paper
       </div>
       <div className="card-block">
+        {state === "error" && <div className="error">Form is invalid</div>}
+
         <form className="clr-form clr-form-compact">
           <ClrInput label="Title" onChange={(value) => setInput("title", value)}/>
           <ClrInput label="Add authors" placeholder="Type an email" onPress={addAuthor}/>
