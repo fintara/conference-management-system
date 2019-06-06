@@ -39,8 +39,6 @@ const App: FunctionComponent = () => {
     }
   }
 
-  console.log("hehe")
-
   return (
     <Router>
       <Header user={user} />
