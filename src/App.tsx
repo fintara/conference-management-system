@@ -26,7 +26,8 @@ const App: FunctionComponent = () => {
       <Route path="/" exact={true} component={Homepage} />
       <Route path="/registration" component={Registration} />
       <Route path="/login" component={() => <Login onUserChanged={(next) => setUser(next)} />} />
-      <Route path="/create-paper" component={PaperForm} />
+      <Route path="/create-paper" component={() =>  user && <PaperForm user={user} />} />
+      <Route path="/papers" component={() => user && <PapersList user={user} />} />
     </Router>
     // <>
     //   <ClrContainer size="normal">

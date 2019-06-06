@@ -1,46 +1,35 @@
-import { Author, author, PaperCompact } from "common/models"
-import React, { FunctionComponent } from "react"
+import {Author, author, PaperCompact, PaperInfo, UserInfo} from "common/models"
+import React, {FunctionComponent, useEffect, useState} from "react"
 import "./PapersList.scss"
+import http from "../../common/http";
 
-const papers: PaperCompact[] = [{
-  authors: [author("John Hughes")],
-  lastUpdated: new Date(),
-  title: "Why Functional Programming Matters",
-}, {
-  authors: [author("Philip Wadler"), author("Stephen Blott")],
-  lastUpdated: new Date(),
-  title: "How to make ad-hoc polymorphism less ad hoc",
-}, {
-  authors: [author("Philip Wadler")],
-  lastUpdated: new Date(),
-  title: "Monads for functional programming",
-}, {
-  authors: [author("Peyton Jones")],
-  lastUpdated: new Date(),
-  title: "Implementing lazy functional languages on stock hardware: the Spineless Tagless G-machine",
-}, {
-  authors: [author("Sheng Liang"), author("Paul Hudak"), author("Mark Jones")],
-  lastUpdated: new Date(),
-  title: "Monad Transformers and Modular Interpreters",
-}]
+type Props = {
+  user: UserInfo
+}
 
-const PapersList: FunctionComponent = () => {
-  const renderAuthor = (a: Author, i: number) => (
-    <span
-      key={i}
-      title={`${a.firstName} ${a.lastName}`}
-      className="author-name"
-    >
-      {a.firstName.substr(0, 1)}. {a.lastName}
-    </span>
-  )
+const PapersList: FunctionComponent<Props> = ({user}) => {
 
-  const renderRow = (paper: PaperCompact, i: number) => (
+  const [papers, setPapers] = useState<PaperInfo[]>([])
+
+  const getUsersPapers = async (email: string) => {
+    try {
+      const response = await http.get<PaperInfo[]>(`/papers?email=${email}`)
+      setPapers(response)
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    getUsersPapers(user.email)
+  }, [])
+
+  const renderRow = (paper: PaperInfo, i: number) => (
     <tr key={i}>
       <td><input type="checkbox" className="checkbox" /></td>
       <td className="left">{paper.title}</td>
-      <td className="left">{paper.authors.map(renderAuthor)}</td>
-      <td>{paper.lastUpdated.toLocaleDateString()}</td>
+      <td className="left">{paper.authors.join(", ")}</td>
+      <td>{paper.createdAt}</td>
     </tr>
   )
 

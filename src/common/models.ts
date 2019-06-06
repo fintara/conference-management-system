@@ -18,7 +18,7 @@ export interface PaperInfo {
   id: string
   abstract: string
   title: string
-  createdAt: number
+  createdAt: string
   authors: string[]
   keywords: string[]
 }

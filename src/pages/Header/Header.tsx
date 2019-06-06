@@ -30,7 +30,7 @@ const Header: FunctionComponent<Props> = ({ user }) => {
                 {user.name}
               </button>
               <div className="dropdown-menu">
-                <h4 className="dropdown-header">Reviewer</h4>
+                <h4 className="dropdown-header">Author</h4>
                 <button type="button" className="dropdown-item">Profile</button>
                 <div className="dropdown-divider" />
                 <button type="button" className="dropdown-item">Sign out</button>

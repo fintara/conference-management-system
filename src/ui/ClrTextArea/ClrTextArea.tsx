@@ -1,14 +1,22 @@
-import React, { FunctionComponent } from "react"
+import React, {ChangeEvent, FunctionComponent, useState} from "react"
 import "./ClrTextArea.scss"
 
 type Props = {
   label: string
   placeholder?: string
   fluid?: boolean
+  onChange?: (text: string) => void
 }
 
-const ClrTextArea: FunctionComponent<Props> = ({ label, placeholder, fluid }) => {
+const ClrTextArea: FunctionComponent<Props> = ({ label, placeholder, fluid, onChange }) => {
   fluid = fluid !== undefined ? fluid : true
+
+  const [input, setInput] = useState("")
+
+  const handleChange = (event: ChangeEvent<HTMLTextAreaElement>): void  => {
+    setInput(event.target.value)
+    onChange && onChange(event.target.value)
+  }
 
   return (
     <div className="clr-form-control clr-row">
@@ -18,6 +26,7 @@ const ClrTextArea: FunctionComponent<Props> = ({ label, placeholder, fluid }) =>
           <textarea
             placeholder={placeholder}
             className="clr-textarea"
+            onChange={handleChange}
           />
         </div>
       </div>

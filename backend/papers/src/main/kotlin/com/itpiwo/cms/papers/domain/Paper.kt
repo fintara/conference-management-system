@@ -25,10 +25,10 @@ fun PaperSubmissionRequest.toPaper() = Paper(
 )
 
 fun Paper.toPaperInfo() = PaperInfo(
-  id,
-  title,
-  abstract,
-  createdAt.format(DateTimeFormatter.BASIC_ISO_DATE),
-  keywords,
-  authors
+  id = id,
+  title = title,
+  abstract = abstract,
+  createdAt = createdAt.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")),
+  keywords = keywords,
+  authors = authors
 )

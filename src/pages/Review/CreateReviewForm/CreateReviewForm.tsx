@@ -10,6 +10,7 @@ const marks = ["Very Good", "Good", "Average", "Pass", "Fail"]
 const info: PaperInfo = {
   id: "",
   abstract: "",
+  createdAt: "12.12.2012 12:12:12",
   authors: ["John Smith", "Jane Doe"],
   keywords: ["data", "science", "AI", "machine learning"],
   title: "Machine learning in automated text categorization",

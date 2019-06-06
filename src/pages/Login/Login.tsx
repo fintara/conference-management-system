@@ -34,7 +34,7 @@ const Login: FunctionComponent<Props> = (props) => {
   }
 
   if (state === "success") {
-    return <Redirect to="/" />
+    return <Redirect to="/papers" />
   }
 
   return (

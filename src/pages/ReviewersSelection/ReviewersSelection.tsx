@@ -17,6 +17,7 @@ const reviewers: Array<{match: number, reviewer: Reviewer}> = [
 const info: PaperInfo = {
   id: "",
   abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip",
+  createdAt: "12.12.12 12:12:12",
   authors: ["John Smith", "Jane Doe"],
   keywords: ["data", "science", "AI", "machine learning"],
   title: "Machine learning in automated text categorization",
