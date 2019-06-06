@@ -5,9 +5,13 @@ import com.itpiwo.cms.common.domain.paper.PaperSubmissionRequest
 import com.itpiwo.cms.common.domain.user.UserInfo
 import com.itpiwo.cms.common.domain.user.UserLoginRequest
 import com.itpiwo.cms.common.domain.user.UserRegistrationRequest
+import com.itpiwo.cms.common.domain.user.displayName
 import org.springframework.web.bind.annotation.*
 import reactor.core.publisher.Flux
+import reactor.core.publisher.Flux.zip
 import reactor.core.publisher.Mono
+import reactor.core.publisher.zip
+import reactor.util.function.Tuple2
 import javax.validation.Valid
 
 /**
@@ -25,12 +29,19 @@ class GatewayController (
     = papersService.findAll()
 
   @PostMapping("/papers")
-  fun createPaper(@Valid @RequestBody request: PaperSubmissionRequest, @RequestHeader(value = "CMS-Auth") email: String): Mono<PaperInfo>
+  fun createPaper(
+    @Valid @RequestBody request: PaperSubmissionRequest,
+    @RequestHeader(value = "CMS-Auth") email: String
+  ): Mono<PaperInfo>
     = papersService.createPaper(request, email)
 
   @GetMapping("/papers", params = ["email"])
-  fun getAuthorsPapers(@RequestParam("email", required = true) email: String): Flux<PaperInfo>
-    = papersService.findAuthorsPapers(email)
+  fun getAuthorsPapers(
+    @RequestParam("email", required = true) email: String
+  ): Flux<PaperInfo>
+    = papersService.findAuthorsPapers(email).flatMap {
+    zip(Flux.just(it), Flux.fromIterable(it.authors).flatMap(usersService::findByEmail).collectList()) }
+    .map { it.t1.copy(authors = it.t2.map(UserInfo::displayName).toList()) }
 
   @PostMapping("/users/register")
   fun registerUser(@Valid @RequestBody request: UserRegistrationRequest): Mono<UserInfo>

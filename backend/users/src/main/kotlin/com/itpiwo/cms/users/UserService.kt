@@ -1,6 +1,7 @@
 package com.itpiwo.cms.users
 
 import com.itpiwo.cms.common.bool
+import com.itpiwo.cms.common.domain.user.UserInfo
 import com.itpiwo.cms.common.domain.user.UserLoginRequest
 import com.itpiwo.cms.common.domain.user.UserRegistrationRequest
 import com.itpiwo.cms.common.security.PasswordEncoder
@@ -36,5 +37,8 @@ class UserService (
             { Mono.error(AuthenticationException.wrongPassword()) }
         ) }
         .switchIfEmpty(Mono.error(AuthenticationException.emailNotFound()))
+
+    fun findByEmail(email: String): Mono<User> = repository
+        .findByEmail(email)
 
 }

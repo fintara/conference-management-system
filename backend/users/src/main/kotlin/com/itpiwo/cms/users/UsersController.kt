@@ -4,9 +4,7 @@ import com.itpiwo.cms.common.domain.user.UserInfo
 import com.itpiwo.cms.common.domain.user.UserLoginRequest
 import com.itpiwo.cms.common.domain.user.UserRegistrationRequest
 import com.itpiwo.cms.users.domain.toUserInfo
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 import reactor.core.publisher.Mono
 import javax.validation.Valid
 
@@ -26,5 +24,10 @@ class UsersController (
     @PostMapping("/login")
     fun login(@Valid @RequestBody request: UserLoginRequest): Mono<UserInfo> {
         return service.tryLogin(request).map { it.toUserInfo() }
+    }
+
+    @GetMapping("/search", params = ["email"])
+    fun findByEmail(@RequestParam email: String): Mono<UserInfo> {
+        return service.findByEmail(email).map { it.toUserInfo() }
     }
 }

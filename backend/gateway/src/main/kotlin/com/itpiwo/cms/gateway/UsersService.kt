@@ -32,4 +32,11 @@ class UsersService (
         .body(BodyInserters.fromObject(data))
         .retrieve()
         .bodyToMono(UserInfo::class.java)
+
+    fun findByEmail(email: String): Mono<UserInfo> = web
+        .get()
+        .uri("/search?email=$email")
+        .retrieve()
+        .bodyToMono(UserInfo::class.java)
+        .switchIfEmpty(Mono.just(UserInfo("", email, "", "")))
 }

@@ -11,3 +11,5 @@ data class UserInfo (
 ) {
     val name: String get() = "$firstName $lastName"
 }
+
+val UserInfo.displayName get() = if (firstName.isNotBlank()) name else email
