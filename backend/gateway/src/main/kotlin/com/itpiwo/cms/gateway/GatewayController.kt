@@ -1,9 +1,12 @@
 package com.itpiwo.cms.gateway
 
-import com.itpiwo.cms.common.domain.UserInfo
-import com.itpiwo.cms.common.domain.UserLoginRequest
-import com.itpiwo.cms.common.domain.UserRegistrationRequest
+import com.itpiwo.cms.common.domain.paper.PaperInfo
+import com.itpiwo.cms.common.domain.paper.PaperSubmitionRequest
+import com.itpiwo.cms.common.domain.user.UserInfo
+import com.itpiwo.cms.common.domain.user.UserLoginRequest
+import com.itpiwo.cms.common.domain.user.UserRegistrationRequest
 import org.springframework.web.bind.annotation.*
+import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
 import javax.validation.Valid
 
@@ -17,14 +20,23 @@ class GatewayController (
     private val usersService: UsersService
 ) {
 
-    @GetMapping("/papers")
-    fun getPapers() = papersService.findAll()
+  @GetMapping("/papers")
+  fun getPapers(): Flux<PaperInfo>
+    = papersService.findAll()
 
-    @PostMapping("/users/register")
-    fun registerUser(@Valid @RequestBody request: UserRegistrationRequest): Mono<UserInfo>
-            = usersService.createUser(request)
+  @PostMapping("/papers")
+  fun createPaper(@Valid @RequestBody request: PaperSubmitionRequest): Mono<PaperInfo>
+    = papersService.createPaper(request)
 
-    @PostMapping("/users/login")
-    fun loginUser(@Valid @RequestBody request: UserLoginRequest): Mono<UserInfo>
-            = usersService.login(request)
+  @GetMapping("/papers")
+  fun getAuthorsPapers(@RequestParam("email", required = true) email: String): Flux<PaperInfo>
+    = papersService.findAuthorsPapers(email)
+
+  @PostMapping("/users/register")
+  fun registerUser(@Valid @RequestBody request: UserRegistrationRequest): Mono<UserInfo>
+    = usersService.createUser(request)
+
+  @PostMapping("/users/login")
+  fun loginUser(@Valid @RequestBody request: UserLoginRequest): Mono<UserInfo>
+    = usersService.login(request)
 }

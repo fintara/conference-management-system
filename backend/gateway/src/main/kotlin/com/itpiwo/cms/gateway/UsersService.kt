@@ -1,8 +1,8 @@
 package com.itpiwo.cms.gateway
 
-import com.itpiwo.cms.common.domain.UserInfo
-import com.itpiwo.cms.common.domain.UserLoginRequest
-import com.itpiwo.cms.common.domain.UserRegistrationRequest
+import com.itpiwo.cms.common.domain.user.UserInfo
+import com.itpiwo.cms.common.domain.user.UserLoginRequest
+import com.itpiwo.cms.common.domain.user.UserRegistrationRequest
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.stereotype.Service
 import org.springframework.web.reactive.function.BodyInserters

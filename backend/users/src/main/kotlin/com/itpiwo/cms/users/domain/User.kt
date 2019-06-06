@@ -1,7 +1,7 @@
 package com.itpiwo.cms.users.domain
 
-import com.itpiwo.cms.common.domain.UserInfo
-import com.itpiwo.cms.common.domain.UserRegistrationRequest
+import com.itpiwo.cms.common.domain.user.UserInfo
+import com.itpiwo.cms.common.domain.user.UserRegistrationRequest
 import java.util.*
 
 /**
@@ -27,8 +27,8 @@ fun UserRegistrationRequest.toUser(passwordEncoder: (String) -> String) = User(
 )
 
 fun User.toUserInfo() = UserInfo(
-    id,
-    email,
-    firstName,
-    lastName
+  id,
+  email,
+  firstName,
+  lastName
 )

@@ -1,4 +1,4 @@
-package com.itpiwo.cms.common.domain
+package com.itpiwo.cms.common.domain.user
 
 import org.hibernate.validator.constraints.Length
 import javax.validation.constraints.Email

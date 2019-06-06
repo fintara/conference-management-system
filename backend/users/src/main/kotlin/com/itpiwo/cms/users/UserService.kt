@@ -1,8 +1,8 @@
 package com.itpiwo.cms.users
 
 import com.itpiwo.cms.common.bool
-import com.itpiwo.cms.common.domain.UserLoginRequest
-import com.itpiwo.cms.common.domain.UserRegistrationRequest
+import com.itpiwo.cms.common.domain.user.UserLoginRequest
+import com.itpiwo.cms.common.domain.user.UserRegistrationRequest
 import com.itpiwo.cms.common.security.PasswordEncoder
 import com.itpiwo.cms.users.domain.User
 import com.itpiwo.cms.users.domain.toUser

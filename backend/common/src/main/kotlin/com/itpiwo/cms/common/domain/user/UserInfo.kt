@@ -1,4 +1,4 @@
-package com.itpiwo.cms.common.domain
+package com.itpiwo.cms.common.domain.user
 
 /**
  * Created by Tsvetan Ovedenski on 01/06/19.

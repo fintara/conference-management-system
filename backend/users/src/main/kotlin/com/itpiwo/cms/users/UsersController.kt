@@ -1,8 +1,8 @@
 package com.itpiwo.cms.users
 
-import com.itpiwo.cms.common.domain.UserInfo
-import com.itpiwo.cms.common.domain.UserLoginRequest
-import com.itpiwo.cms.common.domain.UserRegistrationRequest
+import com.itpiwo.cms.common.domain.user.UserInfo
+import com.itpiwo.cms.common.domain.user.UserLoginRequest
+import com.itpiwo.cms.common.domain.user.UserRegistrationRequest
 import com.itpiwo.cms.users.domain.toUserInfo
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody

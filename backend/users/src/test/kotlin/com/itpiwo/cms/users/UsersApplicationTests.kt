@@ -1,17 +1,12 @@
 package com.itpiwo.cms.users
 
-import com.itpiwo.cms.common.domain.UserLoginRequest
-import com.itpiwo.cms.common.domain.UserRegistrationRequest
+import com.itpiwo.cms.common.domain.user.UserLoginRequest
+import com.itpiwo.cms.common.domain.user.UserRegistrationRequest
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebFlux
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient
-import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.test.context.ActiveProfiles
-import org.springframework.test.context.junit.jupiter.SpringExtension
 import org.springframework.test.web.reactive.server.WebTestClient
 import org.springframework.web.reactive.function.BodyInserters
 
@@ -45,14 +40,14 @@ class UsersApplicationTests {
 	@Test
 	fun `user can log in after registration`() {
 		val registration = UserRegistrationRequest(
-			email = "test@gmail.com",
-			password = "123456789",
-			firstName = "Test",
-			lastName = "Junitov",
-			dob = "2000/01/01 23:59:59",
-			phone = "",
-			university = ""
-		)
+      email = "test@gmail.com",
+      password = "123456789",
+      firstName = "Test",
+      lastName = "Junitov",
+      dob = "2000/01/01 23:59:59",
+      phone = "",
+      university = ""
+    )
 
 		web.post()
 			.uri("/register")
@@ -74,14 +69,14 @@ class UsersApplicationTests {
 	@Test
 	fun `user cannot register with password length lt 6`() {
 		val registration = UserRegistrationRequest(
-			email = "test@gmail.com",
-			password = "123",
-			firstName = "Test",
-			lastName = "Junitov",
-			dob = "2000/01/01 23:59:59",
-			phone = "",
-			university = ""
-		)
+      email = "test@gmail.com",
+      password = "123",
+      firstName = "Test",
+      lastName = "Junitov",
+      dob = "2000/01/01 23:59:59",
+      phone = "",
+      university = ""
+    )
 
 		web.post()
 			.uri("/register")
@@ -93,14 +88,14 @@ class UsersApplicationTests {
 	@Test
 	fun `user cannot register with invalid email`() {
 		val registration = UserRegistrationRequest(
-			email = "testgmail.com",
-			password = "1234567890",
-			firstName = "Test",
-			lastName = "Junitov",
-			dob = "2000/01/01 23:59:59",
-			phone = "",
-			university = ""
-		)
+      email = "testgmail.com",
+      password = "1234567890",
+      firstName = "Test",
+      lastName = "Junitov",
+      dob = "2000/01/01 23:59:59",
+      phone = "",
+      university = ""
+    )
 
 		web.post()
 			.uri("/register")
@@ -112,14 +107,14 @@ class UsersApplicationTests {
 	@Test
 	fun `user cannot register with existing email`() {
 		val registration = UserRegistrationRequest(
-			email = "test@gmail.com",
-			password = "1234567890",
-			firstName = "Test",
-			lastName = "Junitov",
-			dob = "2000/01/01 23:59:59",
-			phone = "",
-			university = ""
-		)
+      email = "test@gmail.com",
+      password = "1234567890",
+      firstName = "Test",
+      lastName = "Junitov",
+      dob = "2000/01/01 23:59:59",
+      phone = "",
+      university = ""
+    )
 
 		web.post()
 			.uri("/register")
