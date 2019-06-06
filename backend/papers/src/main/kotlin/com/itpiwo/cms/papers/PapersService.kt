@@ -15,6 +15,9 @@ class PapersService (
 
   fun createPaper(data: PaperSubmissionRequest, email: String): Mono<PaperInfo> {
     data.authors.add(email)
+    val keywords = data.keywords.distinct()
+    data.keywords.clear()
+    data.keywords.addAll(keywords)
     return repository.save(data.toPaper()).map { it.toPaperInfo() }
   }
 
