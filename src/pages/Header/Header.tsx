@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from "react"
+import React, { FunctionComponent, useEffect, useState } from "react"
 import { BrowserRouter as Router, Link, Route } from "react-router-dom"
 
 import { UserInfo } from "common/models"
@@ -10,6 +10,10 @@ type Props = {
 
 const Header: FunctionComponent<Props> = ({ user }) => {
   const [dropdown, setDropdown] = useState(false)
+
+  useEffect(() => {
+    setDropdown(false)
+  }, [user])
 
   return (
     <div>
@@ -34,7 +38,7 @@ const Header: FunctionComponent<Props> = ({ user }) => {
                 <h4 className="dropdown-header">Author</h4>
                 <button type="button" className="dropdown-item">Profile</button>
                 <div className="dropdown-divider" />
-                <button type="button" className="dropdown-item">Sign out</button>
+                <Link to="/logout" className="dropdown-item">Sign out</Link>
               </div>}
             </div>
           </> : <>

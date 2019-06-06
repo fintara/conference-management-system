@@ -16,6 +16,7 @@ import { BrowserRouter as Router, Link, Route } from "react-router-dom"
 import ClrContainer from "ui/ClrContainer"
 import "./App.scss"
 import CreateReviewForm from "./pages/Review/CreateReviewForm/CreateReviewForm"
+import Logout from "pages/Logout";
 
 const App: FunctionComponent = () => {
   const [user, setUser] = useState<null | UserInfo>(null)
@@ -47,6 +48,7 @@ const App: FunctionComponent = () => {
       <Route path="/" exact={true} component={Homepage} />
       <Route path="/registration" component={Registration} />
       <Route path="/login" component={() => <Login onUserChanged={onUser} />} />
+      <Route path="/logout" component={() => <Logout onUserChanged={() => onUser(null)} />} />
       <Route path="/create-paper" component={() =>  user && <PaperForm user={user} />} />
       <Route path="/papers" component={() => user && <PapersList user={user} />} />
     </Router>
